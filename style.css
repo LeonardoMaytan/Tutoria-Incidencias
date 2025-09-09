@@ -258,67 +258,7 @@ footer {
 /* ========================= */
 
 /* Tablets y pantallas medianas */
-@media (max-width: 768px) {
-    .nav-container {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
-
-    header img.perfil-img {
-        width: 120px;
-        height: 120px;
-    }
-
-    h1 {
-        font-size: 1.5em;
-    }
-
-    h2 {
-        font-size: 1.2em;
-    }
-}
-
-/* Móviles pequeños */
-@media (max-width: 480px) {
-    header {
-        padding: 30px 15px;
-    }
-
-    header img.perfil-img {
-        width: 90px;
-        height: 90px;
-    }
-
-    .card img {
-        max-width: 100%;
-        /* ocupa todo el ancho disponible */
-    }
-
-    nav ul {
-        gap: 5px;
-    }
-
-    h1 {
-        font-size: 1.2em;
-    }
-
-    h2 {
-        font-size: 1em;
-    }
-
-    .estado-actual {
-        font-size: 0.9em;
-        padding: 10px;
-    }
-}
-
-/* ===== HEADER INSTITUCIONAL ===== */
+/* ===== HEADER ===== */
 .header {
     position: relative;
     background-color: #ffffff;
@@ -332,53 +272,90 @@ footer {
     position: absolute;
     top: 10px;
     left: 20px;
-    width: 70px;
+    width: 60px;
     height: auto;
     border-radius: 8px;
 }
 
 .header-texto {
     display: inline-block;
+    max-width: 80%; /* para que no choque con el logo */
 }
 
 .header-texto .anio {
-    font-size: 30px;
+    font-size: 22px;
     font-weight: bold;
     color: #444;
     margin: 0;
 }
 
 .header-texto .colegio {
-    font-size: 40px;
-    font-weight: bold;
-    color: #222;
-    margin: 3px 0 0 0;
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 600px) {
-    .header-texto .anio {
-        font-size: 16px;
-    }
-    .header-texto .colegio {
-        font-size: 30px;
-    }
-
-
-
-.header-texto .anio {
-    font-size: 40px;   /* antes 14px */
-    font-weight: bold;
-    color: #444;
-    margin: 0;
-}
-
-.header-texto .colegio {
-    font-size: 30px;   /* antes 20px */
+    font-size: 28px;
     font-weight: bold;
     color: #222;
     margin: 5px 0 0 0;
 }
 
+/* ===== FOOTER ICONOS ===== */
+.footer-social img {
+    max-width: 40px; /* límite superior */
+    height: auto;
+    object-fit: contain;
+    border-radius: 5px;
+    background-color: white;
+    padding: 3px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease;
+}
 
+.footer-social img:hover {
+    transform: scale(1.1);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .header-logo {
+        width: 50px;
+    }
+
+    .header-texto .anio {
+        font-size: 18px;
+    }
+
+    .header-texto .colegio {
+        font-size: 22px;
+    }
+
+    .footer-social {
+        flex-wrap: wrap;  /* íconos en varias filas si no alcanzan */
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 50px 10px 10px 10px;
+    }
+
+    .header-logo {
+        width: 40px;
+        top: 5px;
+        left: 5px;
+    }
+
+    .header-texto {
+        max-width: 100%;
+    }
+
+    .header-texto .anio {
+        font-size: 16px;
+    }
+
+    .header-texto .colegio {
+        font-size: 18px;
+    }
+
+    .footer-social img {
+        max-width: 30px; /* íconos más chicos en móvil */
+    }
 }
