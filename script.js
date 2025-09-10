@@ -587,7 +587,7 @@ function generarPDFMasivo() {
 
         // Separador y título del ticket
         doc.setFontSize(13);
-        doc.text("TICKET DE INCIDENCIA DEL ESTUDIANTE", 105, 42 + offsetY, null, null, "center");
+        doc.text("INCIDENCIA DEL ESTUDIANTE N°______ ", 105, 42 + offsetY, null, null, "center");
         doc.setLineWidth(0.5);
         doc.line(10, 45 + offsetY, 200, 45 + offsetY);
 
@@ -618,6 +618,7 @@ function generarPDFMasivo() {
         doc.text("__________________________________", 120, y);
         doc.text("MATOS OCAÑO GILMER SILVERIO", 125, y + 6);
         doc.text("DNI:63422838", 145, y + 11);
+        doc.text("Coord. de Tutoría", 141, y + 16);
     });
 
     // 👇 este save va después de terminar el forEach
@@ -626,10 +627,9 @@ function generarPDFMasivo() {
 
 
 function generarID() {
-    const now = new Date();
-    const fecha = now.toISOString().slice(0, 10).replace(/-/g, '');
-    const hora = now.toTimeString().slice(0, 8).replace(/:/g, '');
-    const random = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
-    return `TICKET-${fecha}-${hora}-${random}`;
-}
-
+            const now = new Date();
+            const fecha = now.toISOString().slice(0, 10).replace(/-/g, '');
+            const hora = now.toTimeString().slice(0, 8).replace(/:/g, '');
+            const random = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+            return `TICKET-${fecha}-${hora}-${random}`;
+        }
