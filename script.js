@@ -590,6 +590,7 @@ function generarPDFMasivo() {
         doc.text("TICKET DE INCIDENCIA DEL ESTUDIANTE", 105, 42 + offsetY, null, null, "center");
         doc.setLineWidth(0.5);
         doc.line(10, 45 + offsetY, 200, 45 + offsetY);
+
         // Datos del estudiante
         doc.setFontSize(11);
         let y = 55 + offsetY;
@@ -600,22 +601,29 @@ function generarPDFMasivo() {
         doc.text(`Grado y Sección: ${est.grado}`, 20, y); y += 7;
         doc.text(`Fecha de Salida: ${fecha}`, 20, y); y += 7;
         doc.text(`Hora de Salida: ${hora}`, 20, y); y += 7;
-        doc.text(`Descripción: ${descripcion}`, 20, y); y += 7;
+
+        // --- Descripción ajustada ---
+        const descripcionTexto = `Descripción: ${descripcion}`;
+        const descripcionLineas = doc.splitTextToSize(descripcionTexto, 170); // 170mm de ancho máximo
+        descripcionLineas.forEach(linea => {
+            doc.text(linea, 20, y);
+            y += 7; // espacio entre líneas
+        });
 
         // Firmas
         y += 15;
         doc.text("_________________________", 20, y);
-        doc.text("Firma del Apoderado", 25, y + 6);
+        doc.text("Firma del Estudiante", 25, y + 6);
 
         doc.text("__________________________________", 120, y);
         doc.text("MATOS OCAÑO GILMER SILVERIO", 125, y + 6);
         doc.text("DNI:63422838", 145, y + 11);
-
-
     });
 
+    // 👇 este save va después de terminar el forEach
     doc.save("Incidencia.pdf");
 }
+
 
 function generarID() {
     const now = new Date();
@@ -624,3 +632,4 @@ function generarID() {
     const random = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
     return `TICKET-${fecha}-${hora}-${random}`;
 }
+
