@@ -599,8 +599,8 @@ function generarPDFMasivo() {
         doc.text(`DNI del Estudiante: ${est.dni}`, 20, y); y += 7;
         doc.text(`Apellido y Nombre: ${est.nombre}`, 20, y); y += 7;
         doc.text(`Grado y Sección: ${est.grado}`, 20, y); y += 7;
-        doc.text(`Fecha de Salida: ${fecha}`, 20, y); y += 7;
-        doc.text(`Hora de Salida: ${hora}`, 20, y); y += 7;
+        doc.text(`Fecha: ${fecha}`, 20, y); y += 7;
+        doc.text(`Hora: ${hora}`, 20, y); y += 7;
 
         // --- Descripción ajustada ---
         const descripcionTexto = `Descripción: ${descripcion}`;
@@ -633,3 +633,4 @@ function generarID() {
             const random = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
             return `TICKET-${fecha}-${hora}-${random}`;
         }
+
