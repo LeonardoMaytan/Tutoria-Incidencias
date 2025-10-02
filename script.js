@@ -616,8 +616,8 @@ function generarPDFMasivo() {
         doc.text("Firma del Estudiante", 25, y + 6);
 
         doc.text("__________________________________", 120, y);
-        doc.text("MATOS OCAÑO GILMER SILVERIO", 125, y + 6);
-        doc.text("DNI:63422838", 145, y + 11);
+        doc.text("RAYMUNDO OLORTEGUI CELIA", 125, y + 6);
+        doc.text("DNI:20995200", 145, y + 11);
         doc.text("Coord. de Tutoría", 141, y + 16);
     });
 
@@ -633,4 +633,5 @@ function generarID() {
             const random = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
             return `TICKET-${fecha}-${hora}-${random}`;
         }
+
 
